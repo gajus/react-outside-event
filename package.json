@@ -1,0 +1,41 @@
+{
+  "name": "react-outside-event",
+  "description": "Attaches an event listener to the outside of the component.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Gajus Kuizinas",
+    "email": "gk@anuary.com",
+    "url": "http://gajus.com"
+  },
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "react",
+    "event",
+    "outside",
+    "click"
+  ],
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gajus/react-outside-event"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.22",
+    "babel-loader": "^5.3.2",
+    "chai": "^3.2.0",
+    "jsdom": "^6.1.0",
+    "mocha": "^2.2.5",
+    "react": "^0.14.0-beta3",
+    "react-addons-test-utils": "^0.14.0-beta3",
+    "react-dom": "^0.14.0-beta3",
+    "sinon": "^1.16.1",
+    "webpack": "^1.11.0"
+  },
+  "dependencies": {
+
+    },
+  "scrips": {
+    "test": "mocha",
+    "lint": "eslint ./src/**/*.js"
+  }
+}
