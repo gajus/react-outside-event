@@ -9,6 +9,10 @@ import ReactDOM from 'react-dom';
 export default (Target, supportedEvents = ['mousedown']) => {
     return class ReactOutsideEvent extends React.Component {
         componentDidMount = () => {
+            if (!this.refs.target.onOutsideEvent) {
+                throw new Error('Component does not defined "onOutsideEvent" method.');
+            }
+
             supportedEvents.forEach((eventName) => {
                 window.addEventListener(eventName, this.handleEvent, false);
             });
@@ -31,7 +35,9 @@ export default (Target, supportedEvents = ['mousedown']) => {
             isInside = targetElement.contains(event.target) || targetElement === event.target;
             isOutside = !isInside;
 
-            if (isOutside && target.onOutsideEvent) {
+
+
+            if (isOutside) {
                 target.onOutsideEvent(event);
             }
         };

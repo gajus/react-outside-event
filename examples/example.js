@@ -11786,6 +11786,10 @@
 	            _get(Object.getPrototypeOf(ReactOutsideEvent.prototype), 'constructor', this).apply(this, arguments);
 	
 	            this.componentDidMount = function () {
+	                if (!_this.refs.target.onOutsideEvent) {
+	                    throw new Error('Component does not defined "onOutsideEvent" method.');
+	                }
+	
 	                supportedEvents.forEach(function (eventName) {
 	                    window.addEventListener(eventName, _this.handleEvent, false);
 	                });
@@ -11808,7 +11812,7 @@
 	                isInside = targetElement.contains(event.target) || targetElement === event.target;
 	                isOutside = !isInside;
 	
-	                if (isOutside && target.onOutsideEvent) {
+	                if (isOutside) {
 	                    target.onOutsideEvent(event);
 	                }
 	            };
