@@ -24,7 +24,7 @@ All DOM events that bubble are supported. By default, only "mousedown" event lis
 
 ## Usage
 
-Define a component class and wrap it using `ReactOutsideEvent`, e.g.
+Define a component class and wrap it using `ReactOutsideEvent`. Your class must define `onOutsideEvent` method that will be invoked when an outside event occurs, e.g.
 
 ```js
 import React from 'react';
@@ -32,14 +32,8 @@ import ReactDOM from 'react-dom';
 import ReactOutsideEvent from 'react-outside-event';
 
 class Player extends React.Component {
-    onOutsideEvent = () => {
-        this.setState({
-            lastEventName: event.type
-        });
-    }
-
-    handleInsideEvent = (event) => {
-        console.log('event', event.type);
+    onOutsideEvent = (event) => {
+        // Handle the event.
     }
 
     render () {
@@ -48,4 +42,28 @@ class Player extends React.Component {
 }
 
 export default ReactOutsideEvent(Player, ['click']);
+```
+
+You can attach multiple event listeners at once and selectively handle events with a simple conditional logic, e.g.
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactOutsideEvent from 'react-outside-event';
+
+class Player extends React.Component {
+    onOutsideEvent = (event) => {
+        if (event.type === 'mousedown') {
+
+        } else if (event.type === 'mouseup') {
+
+        }
+    }
+
+    render () {
+        return <div>Hello, World!</div>;
+    }
+}
+
+export default ReactOutsideEvent(Player, ['mousedown', 'mouseup']);
 ```
