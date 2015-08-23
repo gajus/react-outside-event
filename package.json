@@ -9,6 +9,7 @@
   },
   "license": "BSD-3-Clause",
   "keywords": [
+    "react-component",
     "react",
     "event",
     "outside",
