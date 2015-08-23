@@ -5,6 +5,8 @@
 
 A higher order component that attaches an event listener for events that occur outside of the component element.
 
+All DOM events that bubble are supported. By default, only "mousedown" event listener is attached. See `supportedEvents` parameter of the `ReactOutsideEvent` function.
+
 ## Examples
 
 * Refer to the [./examples](./examples) directory.
@@ -44,5 +46,5 @@ class Player extends React.Component {
     }
 }
 
-export default ReactOutsideEvent(Player, ['mousedown']);
+export default ReactOutsideEvent(Player, ['click']);
 ```
