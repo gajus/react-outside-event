@@ -67,3 +67,13 @@ class Player extends React.Component {
 
 export default ReactOutsideEvent(Player, ['mousedown', 'mouseup']);
 ```
+
+## Lint, Test, Build
+
+```sh
+npm run lint
+npm run test
+
+# Build examples.
+webpack
+```
