@@ -10,6 +10,7 @@ All DOM events that bubble are supported. By default, only "mousedown" event lis
 ## Examples
 
 * Refer to the [./examples](./examples) directory.
+* [Example JSBin](http://jsbin.com/zowupojoqo/1/edit?html,output).
 
 ## Configuration
 
