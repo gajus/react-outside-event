@@ -74,6 +74,9 @@ export default ReactOutsideEvent(Player, ['mousedown', 'mouseup']);
 npm run lint
 npm run test
 
+# Compile dist package (ES6 to ES5).
+npm run compile
+
 # Build examples.
-webpack
+webpack --config webpack.config.examples.js
 ```
