@@ -73,10 +73,13 @@ export default ReactOutsideEvent(Player, ['mousedown', 'mouseup']);
 ```sh
 npm run lint
 npm run test
+npm run build
+```
 
-# Compile dist package (ES6 to ES5).
-npm run compile
+## Running the example
 
-# Build examples.
-webpack --config webpack.config.examples.js
+```sh
+npm run build
+npm install webpack-dev-server -g
+webpack-dev-server
 ```

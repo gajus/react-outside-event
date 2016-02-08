@@ -27,7 +27,7 @@
     "react": "^0.15.0-alpha.1",
     "react-dom": "^0.15.0-alpha.1",
     "sinon": "^2.0.0-pre",
-    "webpack": "^2.0.7-beta"
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {},
   "scripts": {
@@ -37,6 +37,7 @@
     "build": "npm run pragmatist build",
     "watch-lint": "npm run pragmatist watch-lint",
     "watch-test": "npm run pragmatist watch-test",
-    "watch-build": "npm run pragmatist watch-build"
+    "watch-build": "npm run pragmatist watch-build",
+    "start": "webpack-dev-server"
   }
 }
