@@ -52,7 +52,7 @@ describe('ReactOutsideEvent', () => {
                 WrappedComponent = ReactOutsideEvent(class extends React.Component {
                     onOutsideEvent = (event) => {
                         spy(event.type);
-                    }
+                    };
 
                     render () {
                         return <div />;
@@ -85,7 +85,7 @@ describe('ReactOutsideEvent', () => {
                     WrappedComponent = ReactOutsideEvent(class extends React.Component {
                         onOutsideEvent = (event) => {
                             spy(event.type);
-                        }
+                        };
 
                         render () {
                             return <div />;
@@ -118,7 +118,7 @@ describe('ReactOutsideEvent', () => {
             WrappedComponent = ReactOutsideEvent(class extends React.Component {
                 onOutsideEvent = (event) => {
                     spy(event.type);
-                }
+                };
 
                 render () {
                     return <div className='target'></div>;
@@ -146,7 +146,7 @@ describe('ReactOutsideEvent', () => {
             WrappedComponent = ReactOutsideEvent(class extends React.Component {
                 onOutsideEvent = (event) => {
                     spy(event.type);
-                }
+                };
 
                 render () {
                     return <div>

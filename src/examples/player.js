@@ -14,13 +14,13 @@ class Player extends React.Component {
         this.setState({
             lastEventName: event.type
         });
-    }
+    };
 
     handleInsideEvent = () => {
         this.setState({
             lastEventName: null
         });
-    }
+    };
 
     render () {
         let componentClassName;
