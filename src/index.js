@@ -6,11 +6,11 @@ import ReactDOM from 'react-dom';
  * @param {String[]} supportedEvents A list of valid DOM event names. Default: ['mousedown'].
  * @return {ReactClass}
  */
-export default (Target, supportedEvents = ['mousedown']) => {
+export default (Target, supportedEvents = ['touchstart']) => {
     return class ReactOutsideEvent extends React.Component {
         componentDidMount = () => {
             if (!this.refs.target.onOutsideEvent) {
-                throw new Error('Component does not defined "onOutsideEvent" method.');
+                throw new Error('Component does not define "onOutsideEvent" method.');
             }
 
             supportedEvents.forEach((eventName) => {
