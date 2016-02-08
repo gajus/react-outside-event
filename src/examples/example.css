@@ -27,6 +27,10 @@ body {
     background: #cdfece;
 }
 
+.player.event-touchstart::after {
+    content: 'touchstart';
+}
+
 .player.event-mousedown::after {
     content: 'mousedown';
 }

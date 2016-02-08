@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
  * @param {String[]} supportedEvents A list of valid DOM event names. Default: ['mousedown'].
  * @return {ReactClass}
  */
-export default (Target, supportedEvents = ['touchstart']) => {
+export default (Target, supportedEvents = ['mousedown']) => {
     return class ReactOutsideEvent extends React.Component {
         componentDidMount = () => {
             if (!this.refs.target.onOutsideEvent) {
@@ -34,8 +34,6 @@ export default (Target, supportedEvents = ['touchstart']) => {
             targetElement = ReactDOM.findDOMNode(target);
             isInside = targetElement.contains(event.target) || targetElement === event.target;
             isOutside = !isInside;
-
-
 
             if (isOutside) {
                 target.onOutsideEvent(event);
