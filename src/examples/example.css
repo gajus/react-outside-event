@@ -1,10 +1,13 @@
 html,
 body {
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font: normal 16px/24px 'Helvetica Neue', Helvetica, Arial, freesans, sans-serif; color: #000;
+    font: normal 16px/24px 'Helvetica Neue', Helvetica, Arial, freesans, sans-serif;
+
+    color: #000;
 }
 
 #playground {
@@ -12,11 +15,16 @@ body {
 }
 
 .player {
-    border: 2px solid #ccc; margin: 10px; padding: 10px; min-height: 24px;
+    min-height: 24px;
+    margin: 10px;
+    padding: 10px;
+
+    border: 2px solid #ccc;
 }
 
 .player.active {
-    background: #CDFECE; border-color: #00AA00;
+    border-color: #0a0;
+    background: #cdfece;
 }
 
 .player.event-mousedown::after {

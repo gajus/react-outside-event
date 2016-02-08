@@ -1,3 +1,5 @@
+/* eslint-disable max-nested-callbacks, react/no-multi-comp */
+
 import {
     expect
 } from 'chai';
@@ -10,6 +12,7 @@ import ReactOutsideEvent from './../src';
 
 describe('ReactOutsideEvent', () => {
     beforeEach(() => {
+        /* eslint-disable no-restricted-syntax */
         global.document = jsdom.jsdom(`
             <!DOCTYPE html>
             <html>
@@ -28,14 +31,16 @@ describe('ReactOutsideEvent', () => {
         describe('when target component does not define onOutsideEvent handler', () => {
             it('throws an error', () => {
                 expect(() => {
-                    let target,
+                    let Component,
                         WrappedComponent;
 
-                    WrappedComponent = ReactOutsideEvent(class extends React.Component {
+                    Component = class extends React.Component {
                         render () {
                             return <div />;
                         }
-                    });
+                    };
+
+                    WrappedComponent = ReactOutsideEvent(Component);
 
                     ReactDOM.render(<WrappedComponent />, document.querySelector('#app'));
                 }).to.throw(Error, 'Component does not defined "onOutsideEvent" method.');
@@ -43,13 +48,14 @@ describe('ReactOutsideEvent', () => {
         });
         describe('when event originates outside of the component', () => {
             it('captures "mousedown" event', () => {
-                let target,
-                    WrappedComponent,
-                    spy;
+                let Component,
+                    spy,
+                    target,
+                    WrappedComponent;
 
                 spy = sinon.spy();
 
-                WrappedComponent = ReactOutsideEvent(class extends React.Component {
+                Component = class extends React.Component {
                     onOutsideEvent = (event) => {
                         spy(event.type);
                     };
@@ -57,7 +63,9 @@ describe('ReactOutsideEvent', () => {
                     render () {
                         return <div />;
                     }
-                });
+                };
+
+                WrappedComponent = ReactOutsideEvent(Component);
 
                 ReactDOM.render(<div>
                     <WrappedComponent />
@@ -76,13 +84,14 @@ describe('ReactOutsideEvent', () => {
             });
             ['click', 'mouseup', 'dblclick'].forEach((eventName) => {
                 it('does not capture "' + eventName + '" event', () => {
-                    let target,
-                        WrappedComponent,
-                        spy;
+                    let Component,
+                        spy,
+                        target,
+                        WrappedComponent;
 
                     spy = sinon.spy();
 
-                    WrappedComponent = ReactOutsideEvent(class extends React.Component {
+                    Component = class extends React.Component {
                         onOutsideEvent = (event) => {
                             spy(event.type);
                         };
@@ -90,7 +99,9 @@ describe('ReactOutsideEvent', () => {
                         render () {
                             return <div />;
                         }
-                    });
+                    };
+
+                    WrappedComponent = ReactOutsideEvent(Component);
 
                     ReactDOM.render(<div>
                         <WrappedComponent />
@@ -109,13 +120,14 @@ describe('ReactOutsideEvent', () => {
             });
         });
         it('does not capture events that originate on the component', () => {
-            let target,
-                WrappedComponent,
-                spy;
+            let Component,
+                spy,
+                target,
+                WrappedComponent;
 
             spy = sinon.spy();
 
-            WrappedComponent = ReactOutsideEvent(class extends React.Component {
+            Component = class extends React.Component {
                 onOutsideEvent = (event) => {
                     spy(event.type);
                 };
@@ -123,7 +135,9 @@ describe('ReactOutsideEvent', () => {
                 render () {
                     return <div className='target'></div>;
                 }
-            }, ['click']);
+            };
+
+            WrappedComponent = ReactOutsideEvent(Component, ['click']);
 
             ReactDOM.render(<WrappedComponent />, document.querySelector('#app'));
 
@@ -137,13 +151,14 @@ describe('ReactOutsideEvent', () => {
             expect(spy.callCount).to.equal(0);
         });
         it('does not capture events that originate inside of the component', () => {
-            let target,
-                WrappedComponent,
-                spy;
+            let Component,
+                spy,
+                target,
+                WrappedComponent;
 
             spy = sinon.spy();
 
-            WrappedComponent = ReactOutsideEvent(class extends React.Component {
+            Component = class extends React.Component {
                 onOutsideEvent = (event) => {
                     spy(event.type);
                 };
@@ -153,7 +168,9 @@ describe('ReactOutsideEvent', () => {
                         <div className='target'></div>
                     </div>;
                 }
-            }, ['click']);
+            };
+
+            WrappedComponent = ReactOutsideEvent(Component, ['click']);
 
             ReactDOM.render(<WrappedComponent />, document.querySelector('#app'));
 

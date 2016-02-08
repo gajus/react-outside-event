@@ -25,10 +25,10 @@ export default (Target, supportedEvents = ['mousedown']) => {
         };
 
         handleEvent = (event) => {
-            let target,
-                targetElement,
-                isInside,
-                isOutside;
+            let isInside,
+                isOutside,
+                target,
+                targetElement;
 
             target = this.refs.target;
             targetElement = ReactDOM.findDOMNode(target);
@@ -45,5 +45,5 @@ export default (Target, supportedEvents = ['mousedown']) => {
         render() {
             return <Target ref='target' {... this.props} />;
         }
-    }
+    };
 };

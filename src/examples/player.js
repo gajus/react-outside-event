@@ -28,15 +28,15 @@ class Player extends React.Component {
         componentClassName = 'player';
 
         if (this.state.lastEventName) {
-            componentClassName += ` active event-${this.state.lastEventName}`;
+            componentClassName += ' active event-' + this.state.lastEventName;
         }
 
         return <div
             className={componentClassName}
-            onMouseDown={this.handleInsideEvent}
-            onMouseUp={this.handleInsideEvent}
             onClick={this.handleInsideEvent}
             onDoubleClick={this.handleInsideEvent}
+            onMouseDown={this.handleInsideEvent}
+            onMouseUp={this.handleInsideEvent}
         >{this.props.children}</div>;
     }
 }

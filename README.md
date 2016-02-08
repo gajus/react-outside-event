@@ -1,7 +1,8 @@
 # React Outside Event
 
-[![Travis build status](http://img.shields.io/travis/gajus/react-outside-event/master.svg?style=flat)](https://travis-ci.org/gajus/react-outside-event)
-[![NPM version](http://img.shields.io/npm/v/react-outside-event.svg?style=flat)](https://www.npmjs.org/package/react-outside-event)
+[![Travis build status](http://img.shields.io/travis/gajus/react-outside-event/master.svg?style=flat-square)](https://travis-ci.org/gajus/react-outside-event)
+[![NPM version](http://img.shields.io/npm/v/react-outside-event.svg?style=flat-square)](https://www.npmjs.com/package/react-outside-event)
+[![Canonical Code Style](https://img.shields.io/badge/code%20style-canonical-blue.svg?style=flat-square)](https://github.com/gajus/canonical)
 
 A higher order React component that attaches an event listener for events that occur outside of the component element.
 
@@ -80,6 +81,5 @@ npm run build
 
 ```sh
 npm run build
-npm install webpack-dev-server -g
-webpack-dev-server
+npm run start
 ```

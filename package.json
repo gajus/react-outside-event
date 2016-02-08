@@ -27,7 +27,7 @@
     "react": "^0.15.0-alpha.1",
     "react-dom": "^0.15.0-alpha.1",
     "sinon": "^2.0.0-pre",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^2.0.0-beta"
   },
   "dependencies": {},
   "scripts": {

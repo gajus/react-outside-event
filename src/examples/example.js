@@ -4,9 +4,9 @@ import Player from './player';
 
 ReactDOM.render(<Player>
     <Player>
-        <Player></Player>
-        <Player></Player>
-        <Player></Player>
+        <Player />
+        <Player />
+        <Player />
     </Player>
-    <Player></Player>
+    <Player />
 </Player>, document.querySelector('#playground'));
