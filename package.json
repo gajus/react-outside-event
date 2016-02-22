@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "jsdom": "^8.0.2",
-    "pragmatist": "^3.0.3",
+    "jsdom": "^8.0.4",
+    "pragmatist": "^3.0.13",
     "react": "^0.15.0-alpha.1",
     "react-dom": "^0.15.0-alpha.1",
     "sinon": "^2.0.0-pre",
