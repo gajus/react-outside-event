@@ -1,7 +1,7 @@
 {
   "name": "react-outside-event",
   "description": "A higher order React component that attaches an event listener for events that occur outside of the component element.",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": {
     "name": "Gajus Kuizinas",
     "email": "gajus@gajus.com",
