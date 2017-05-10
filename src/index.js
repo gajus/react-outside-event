@@ -29,14 +29,15 @@ export default (Target, supportedEvents = ['mousedown']) => {
                 isOutside,
                 target,
                 targetElement;
-
             target = this.refs.target;
             targetElement = ReactDOM.findDOMNode(target);
-            isInside = targetElement.contains(event.target) || targetElement === event.target;
-            isOutside = !isInside;
+            if(targetElement != undefined) {
+              isInside = targetElement.contains(event.target) || targetElement === event.target;
+              isOutside = !isInside;
 
-            if (isOutside) {
-                target.onOutsideEvent(event);
+              if (isOutside) {
+                  target.onOutsideEvent(event);
+              }
             }
         };
 
