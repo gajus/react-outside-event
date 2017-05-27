@@ -25,19 +25,16 @@ export default (Target, supportedEvents = ['mousedown']) => {
         };
 
         handleEvent = (event) => {
-            let isInside,
-                isOutside,
-                target,
-                targetElement;
-            target = this.refs.target;
-            targetElement = ReactDOM.findDOMNode(target);
+            let targetElement = ReactDOM.findDOMNode(this.targetRef);
             if (targetElement != undefined && !targetElement.contains(event.target)) {
-                target.onOutsideEvent(event);
+                this.targetRef.onOutsideEvent(event);
             }
         };
-
+        
+        getTargetRef = (ref) => (this.targetRef = ref);
+        
         render() {
-            return <Target ref='target' {... this.props} />;
+            return <Target ref={this.getTargetRef} {... this.props} />;
         }
     };
 };
