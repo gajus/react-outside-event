@@ -31,7 +31,7 @@ export default (Target, supportedEvents = ['mousedown']) => {
                 targetElement;
             target = this.refs.target;
             targetElement = ReactDOM.findDOMNode(target);
-            if(targetElement != undefined && !(targetElement.contains(event.target))) {
+            if (targetElement != undefined && !targetElement.contains(event.target)) {
                 target.onOutsideEvent(event);
             }
         };
