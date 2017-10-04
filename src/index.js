@@ -8,41 +8,33 @@ import ReactDOM from 'react-dom';
  */
 export default (Target, supportedEvents = ['mousedown']) => {
     return class ReactOutsideEvent extends React.Component {
-        componentDidMount = () => {
-            if (!this.refs.target.onOutsideEvent) {
+        componentDidMount() {
+            if (this.targetRef && !this.targetRef.onOutsideEvent) {
                 throw new Error('Component does not define "onOutsideEvent" method.');
             }
 
             supportedEvents.forEach((eventName) => {
                 window.addEventListener(eventName, this.handleEvent, false);
             });
-        };
+        }
 
-        componentWillUnmount = () => {
+        componentWillUnmount() {
             supportedEvents.forEach((eventName) => {
                 window.removeEventListener(eventName, this.handleEvent, false);
             });
-        };
+        }
 
         handleEvent = (event) => {
-            let isInside,
-                isOutside,
-                target,
-                targetElement;
-            target = this.refs.target;
-            targetElement = ReactDOM.findDOMNode(target);
-            if(targetElement != undefined) {
-              isInside = targetElement.contains(event.target) || targetElement === event.target;
-              isOutside = !isInside;
-
-              if (isOutside) {
-                  target.onOutsideEvent(event);
-              }
+            let targetElement = ReactDOM.findDOMNode(this.targetRef);
+            if (targetElement != undefined && !targetElement.contains(event.target)) {
+                this.targetRef.onOutsideEvent(event);
             }
         };
-
+        
+        getTargetRef = (ref) => (this.targetRef = ref);
+        
         render() {
-            return <Target ref='target' {... this.props} />;
+            return <Target ref={this.getTargetRef} {... this.props} />;
         }
     };
 };
